@@ -22,9 +22,17 @@ should you have any questions.</p>
 
 <h3>Application Details</h3>
 
-<h6></h6>
+<h3>Users</h3>
 <ul>
     <li>Register as a new user</li>
     <li>Login to your to-do list</li>
     <li>Add,Delete and Edit your lists</li>
+</ul>
+<h3>Admin</h3>
+<p>If Logged in as Admin</p>
+<ul>
+    <li>You have access to the admin tab</li>
+    <li>You can add, delete and edit users details</li>
+    <li>You can maintain your own To-Do list</li>
+    <li>You CANNOT access other users tasks</li>
 </ul>

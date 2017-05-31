@@ -25,13 +25,41 @@
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
 
-	<div class="row buttons">
+
+    <!--PASSWORD START-->
+
+    <?php  if($this->getAction()->getId() =='update')
+    {?>
+        <div class="row">
+            <?php echo $form->labelEx($model,'New Password (if any)'); ?>
+            <?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>100,'encode'=>false,'value'=>'','placeholder'=>'NULL')); ?>
+            <?php echo $form->error($model,'password'); ?>
+        </div>
+    <?php  }
+    else{
+        ?>
+
+        <div class="row">
+            <?php echo $form->labelEx($model,'password'); ?>
+            <?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>100,'encode'=>true)); ?>
+            <?php echo $form->error($model,'password'); ?>
+        </div>
+
+        <?php
+    }
+    ?>
+
+    <!--PASSWORD END-->
+    <div class="row">
+        <?php echo $form->labelEx($model,'email'); ?>
+        <?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
+        <?php echo $form->error($model,'email'); ?>
+    </div>
+
+
+
+    <div class="row buttons">
 		<?php
         echo CHtml::submitButton($model->isNewRecord ? 'Register' : 'Save');
         ?>

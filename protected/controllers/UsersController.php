@@ -97,8 +97,27 @@ class UsersController extends Controller
 
 		if(isset($_POST['Users']))
 		{
-			$model->attributes=$_POST['Users'];
-			if($model->save())
+			//$model->attributes=$_POST['Users'];
+            //$password=$_POST['Users']['password'];
+           // $model->password=md5($password);
+
+
+            if($_POST['Users']['password']=='NULL'){
+                $p=$model->password;
+                $model->attributes=$_POST['Users'];
+                $model->password=$p;
+            }
+
+            else{
+                $model->attributes=$_POST['Users'];
+                $password=$_POST['Users']['password'];
+                $model->password=md5($password);
+
+            }
+
+
+
+            if($model->save())
 				$this->redirect(array('view','id'=>$model->username));
 		}
 

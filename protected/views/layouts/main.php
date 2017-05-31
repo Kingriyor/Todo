@@ -36,7 +36,26 @@
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
-		)); ?>
+		));
+
+        if(Yii::app()->user->id=='admin') {
+            $this->widget('zii.widgets.CMenu', array(
+                'items' => array(
+                    array('label' => 'Admin', 'url' => array('/users/admin')),
+                ),
+
+            ));
+
+        }
+
+
+        ?>
+
+
+
+
+
+
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
